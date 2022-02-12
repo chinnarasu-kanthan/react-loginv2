@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import {  useSelector } from "react-redux";
+import { BrowserRouter,  Route, Link } from "react-router-dom";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
-
-const currentUser = null;
-
-import "./style.css";
+import  {logout}  from "./actions/auth";
+//import { clearMessage } from "./actions/message";
 
 export default function App() {
+  const { user: currentUser } = useSelector((state) => state.auth);
   return (
     <BrowserRouter>
       <div>

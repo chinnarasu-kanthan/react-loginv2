@@ -1,10 +1,10 @@
-import { LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT, SET_MESSAGE } from './';
+import { LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT, SET_MESSAGE } from '../actions';
 
 import AuthService from '../AuthService';
 
 export const login = (username, password) => (dispatch) => {
   return AuthService.login(username, password).then(
-    (data) => { 
+    (data) => {
       dispatch({
         type: LOGIN_SUCCESS,
         payload: { user: data },

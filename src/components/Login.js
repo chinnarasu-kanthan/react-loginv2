@@ -1,12 +1,12 @@
 import React, { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 import CheckButton from 'react-validation/build/button';
 
-import { login } from "../actions/auth";
+import { login } from '../actions/auth';
 
 const required = (value) => {
   if (!value) {
@@ -18,9 +18,10 @@ const required = (value) => {
   }
 };
 
-const Login = () => {
+const Login = (props) => {
   const form = useRef();
   const checkBtn = useRef();
+  const navigate = useNavigate();
 
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
@@ -51,8 +52,8 @@ const Login = () => {
     if (checkBtn.current.context._errors.length === 0) {
       dispatch(login(username, password))
         .then(() => {
-          props.history.push('/profile');
-          window.location.reload();
+          navigate('/');
+          //window.location.reload();
         })
         .catch(() => {
           setLoading(false);
@@ -62,9 +63,9 @@ const Login = () => {
     }
   };
 
-  // if (isLoggedIn) {
-  //   return <Redirect to="/profile" />;
-  // }
+  if (isLoggedIn) {
+    //navigate('/');
+  }
 
   return (
     <div className="col-md-12">
@@ -112,13 +113,13 @@ const Login = () => {
             </button>
           </div>
 
-          {/* {message && (
+          {message && (
             <div className="form-group">
               <div className="alert alert-danger" role="alert">
                 {message}
               </div>
             </div>
-          )} */}
+          )}
           <CheckButton style={{ display: 'none' }} ref={checkBtn} />
         </Form>
       </div>
