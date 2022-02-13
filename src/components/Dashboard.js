@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 const importView = layout => 
   lazy (() =>
       import(layout).catch(() =>
-      import(`./Layout`)
+      import("./Layout")
       )
   );
 
@@ -13,6 +13,7 @@ const Dashboard = () => {
   const { currentUser } = useSelector((state) => state.auth);
 
   useEffect(() => {
+    console.log(currentUser);
     async function loadViews() {
           const View = await importView(currentUser.layout);
       setViews(<View />);
