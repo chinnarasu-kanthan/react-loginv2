@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const Layout = () => {
-  //const { user: currentUser } = useSelector((state) => state.auth);
+  const { user: currentUser } = useSelector((state) => state.auth);
 
   // if (!currentUser) {
   //   return <Redirect to="/login" />;
@@ -14,23 +14,23 @@ const Layout = () => {
       <div className="card card-container">
         <header className="jumbotron">
           <h3>
-            <strong>Chinna</strong> Profile
+            <strong>Profile</strong> 
           </h3>
         </header>
         <p>
-          <strong>Token:</strong>
+          <strong>First Name:{currentUser.firstName}</strong>
         </p>
         <p>
-          <strong>Id:</strong>
+          <strong>Last Name:{currentUser.lastName}</strong>
         </p>
         <p>
-          <strong>Email:</strong>
+          <strong>Email:{currentUser.username}</strong>
         </p>
-        <strong>Authorities:</strong>
-        <ul></ul>
+    
       </div>
     </div>
   );
 };
+
 
 export default Layout;
