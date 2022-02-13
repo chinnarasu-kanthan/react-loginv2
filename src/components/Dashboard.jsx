@@ -1,5 +1,5 @@
-import React, { lazy, useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, {  useState, useEffect } from 'react';
+import {  useSelector } from 'react-redux';
 
 const importView = (layout) =>
   React.lazy(() => import("./"+layout+".jsx").catch((e) => import('./Layout')));

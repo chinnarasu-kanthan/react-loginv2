@@ -1,8 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-
 const Layout = () => {
-  const { user: currentUser } = useSelector((state) => state.auth);
 
   return (
     <div className="container">
@@ -19,7 +17,7 @@ const Layout = () => {
           <strong>Last Name:</strong>
         </p>
         <p>
-          <strong>Email:{</strong>
+          <strong>Email:</strong>
         </p>
     
       </div>
