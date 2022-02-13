@@ -1,7 +1,7 @@
 import React, {lazy, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-const ImportView = layout => 
+const importView = layout => 
   lazy (() =>
       import(layout).catch(() =>
       import(`./Layout`)
@@ -14,9 +14,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     async function loadViews() {
-     
           const View = await importView(currentUser.layout);
-         
       setViews(<View />);
     }
 
