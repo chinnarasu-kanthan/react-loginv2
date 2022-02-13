@@ -20,7 +20,9 @@ export default function App() {
     });
   }, [dispatch]);
 
-
+  const logOut = useCallback(() => {
+    dispatch(logout());
+  }, [dispatch]);
   return (
     <BrowserRouter>
       <div>
@@ -34,7 +36,7 @@ export default function App() {
                 </Link>
               </li>
               <li className="nav-item">
-                <a href="/login" className="nav-link" onClick={}>
+                <a href="/login" className="nav-link" onClick={logOut}>
                   LogOut
                 </a>
               </li>
