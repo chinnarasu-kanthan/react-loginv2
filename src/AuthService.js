@@ -4,7 +4,7 @@ var users = [
     password: 'test',
     firstName: 'abc',
     lastName: 'inc',
-    layout: 'layout-1',
+    layout: 'LayoutOne',
   },
 ];
 const login = (username, password) => {
@@ -26,7 +26,7 @@ const login = (username, password) => {
         username: user.username,
         firstName: user.firstName,
         lastName: user.lastName,
-        layout: 'layout-1',
+        layout:  user.layout,
       };
       resolve( JSON.stringify(responseJson));
       localStorage.setItem('user', JSON.stringify(responseJson));
