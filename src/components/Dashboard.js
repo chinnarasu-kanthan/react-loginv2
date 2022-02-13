@@ -25,9 +25,9 @@ const Dashboard = () => {
   
   return (
     <React.Suspense fallback='Loading views...'>
-    <div className='container'>{views}</div>
-  </React.Suspense>
-  );
+      <div className='container'>{views}</div>
+    </React.Suspense>
+    );
 };
 
 export default Dashboard;
