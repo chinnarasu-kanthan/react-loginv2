@@ -9,7 +9,7 @@ const Dashboard = () => {
   const { user: currentUser } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    console.log(currentUser.layout);
+    console.log(currentUser.layout+"adsdasd");
     async function loadViews() {
       const View = importView(currentUser.layout);
       setViews(<View />);

@@ -1,13 +1,7 @@
 import React from 'react';
-
 import { useSelector } from 'react-redux';
-
 const LayoutOne = () => {
   const { user: currentUser } = useSelector((state) => state.auth);
-
-  // if (!currentUser) {
-  //   return <Redirect to="/login" />;
-  // }
 
   return (
     <div className="container">
