@@ -1,20 +1,30 @@
 import React, { useState, useEffect, useCallback } from "react";
 import {  useSelector } from "react-redux";
-import { BrowserRouter,  Route, Link } from "react-router-dom";
+import { BrowserRouter,Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
-import  {logout}  from "./actions/auth";
-//import { clearMessage } from "./actions/message";
+import  { logout }  from "../actions/auth"
+import { clearMessage } from "./actions/message";
 
 export default function App() {
   const { user: currentUser } = useSelector((state) => state.auth);
+  useEffect(() => {
+    history.listen((location) => {
+      dispatch(clearMessage()); // clear message when changing location
+    });
+  }, [dispatch]);
+
+  const logOut = useCallback(() => {
+    dispatch(logout());
+  }, [dispatch]);
   return (
     <BrowserRouter>
       <div>
-      <nav className="navbar navbar-expand navbar-dark bg-dark">
+      
           {currentUser ? (
+            <nav className="navbar navbar-expand navbar-dark bg-dark">
             <div className="navbar-nav ml-auto">
               <li className="nav-item">
                 <Link to={"/home"} className="nav-link">
@@ -22,27 +32,14 @@ export default function App() {
                 </Link>
               </li>
               <li className="nav-item">
-                <a href="/login" className="nav-link" onClick={logOut}>
+                <a href="/login" className="nav-link" onClick={logout}>
                   LogOut
                 </a>
               </li>
             </div>
-          ) : (
-            <div className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link to={"/login"} className="nav-link">
-                  Login
-                </Link>
-              </li>
-
-              <li className="nav-item">
-                <Link to={"/register"} className="nav-link">
-                  Sign Up
-                </Link>
-              </li>
-            </div>
-          )}
-        </nav>
+            </nav>
+          ) :" "}
+        
         <div className="container mt-3">
         
            <Routes>

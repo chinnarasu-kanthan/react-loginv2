@@ -83,7 +83,6 @@ const Login = (props) => {
               type="text"
               className="form-control"
               name="username"
-              value={username}
               onChange={onChangeUsername}
               validations={[required]}
             />
@@ -95,15 +94,15 @@ const Login = (props) => {
               type="password"
               className="form-control"
               name="password"
-              value={password}
+             
               onChange={onChangePassword}
               validations={[required]}
             />
           </div>
 
-          <div className="form-group mt-3 align-self-center ">
+          <div className="form-group mt-3">
             <button
-              className=" align-self-center btn btn-primary btn-block"
+              className="form-control btn btn-primary btn-block"
               disabled={loading}
             >
               {loading && (
