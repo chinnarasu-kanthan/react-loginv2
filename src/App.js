@@ -5,7 +5,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
-import logout from './actions/auth';
+import { logout } from "./actions/auth";
 import { clearMessage } from './actions/message';
 import { createBrowserHistory } from 'history';
 
@@ -21,6 +21,7 @@ export default function App() {
   }, [dispatch]);
 
   const logOut = useCallback(() => {
+  
     dispatch(logout());
   }, [dispatch]);
   return (

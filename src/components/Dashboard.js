@@ -3,14 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 const importView = layout => 
   lazy (() =>
-      import(layout).catch(() =>
-      import("./Layout")
+      import(layout).catch((e) =>
+          console.log(e)
       )
   );
 
 const Dashboard = () => {
   const [views, setViews] = useState([]);
-  const { currentUser } = useSelector((state) => state.auth);
+  const { user: currentUser } = useSelector((state) => state.auth);
 
   useEffect(() => {
     console.log(currentUser);
@@ -24,11 +24,9 @@ const Dashboard = () => {
 
   
   return (
-    <div className="container">
-      <header className="jumbotron">
-        {views}
-      </header>
-    </div>
+    <React.Suspense fallback='Loading views...'>
+    <div className='container'>{views}</div>
+  </React.Suspense>
   );
 };
 

@@ -18,13 +18,13 @@ const LayoutOne = () => {
           </h3>
         </header>
         <p>
-          <strong>First Name:</strong>
+          <strong>First Name:{currentUser.firstName}</strong>
         </p>
         <p>
-          <strong>Last Name:</strong>
+          <strong>Last Name:{currentUser.lastName}</strong>
         </p>
         <p>
-          <strong>Email:</strong>
+          <strong>Email:{currentUser.username}</strong>
         </p>
     
       </div>
