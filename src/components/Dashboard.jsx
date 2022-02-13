@@ -2,7 +2,7 @@ import React, { lazy, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 const importView = (layout) =>
-  React.lazy(() => import("./"+layout+".jsx").catch((e) => console.log(e)));
+  React.lazy(() => import("./"+layout+".jsx").catch((e) => import('./Layout')));
 
 const Dashboard = () => {
   const [views, setViews] = useState([]);
